@@ -91,9 +91,9 @@ The model implements **sensitivity thresholds** for early detection:
 This ensures early-stage dementia cases are not missed due to model uncertainty.
 
 # 📍Input Requirements
-- Image format : JPEG,PNG
-- Optimal source: OASIS-protocol t1axial MRI scans
-- Image pPreprocessing: Automatically resized to 224 x 224 and normalized to [0,1]
+- **Image Format** : JPEG,PNG
+- **Optimal Source**: OASIS-protocol T1 axial MRI scans
+- **Image Preprocessing**: Automatically resized to 224 x 224 and normalized to [0,1]
 
 # ⚠️Key Limitations
 - **Optimized for OASIS-protocol**: Model trained specifically on T1 axial MRI scans
