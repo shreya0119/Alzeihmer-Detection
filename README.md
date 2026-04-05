@@ -75,8 +75,21 @@ Alzheimer-Detection/
     - MobileNetV2 backbone with GlobalAveragePooling2D
     - Dropout layer (0.4) for regularization
     - Dense output layer (4 classes) with softmax activation
-- **Training**: 2 phases × 10 epochs
-- **Validation Accuracy**: ~80%
+- **Training**: 10 epochs (2-phase fine-tuning approach)
+- **Training accuracy**: 77.60%
+- **Validation Accuracy**: 80/89% (Epoch 7)
+- **Overfitting Gap**:2.45%
+
+# 📊 Training performance
+
+
+| Metric | Initial | Final | Best | Status |
+|--------|---------|-------|------|--------|
+| **Training Loss** | 0.7962 | 0.8982 | 0.6990 @ Ep5 | Converged |
+| **Validation Loss** | 0.5032 | 0.4920 | 0.4920 @ Ep10 |  Improved |
+| **Training Accuracy** | 76.32% | 77.60% | 81.42% @ Ep7 | ↑ 1.28% |
+| **Validation Accuracy** | 79.42% | 80.05% | 80.89% @ Ep7 | ↑ 0.63% |
+
 
 # 📍Model Behavior & Clinical Sensitivity
 
@@ -96,13 +109,16 @@ This ensures early-stage dementia cases are not missed due to model uncertainty.
 - **Image Preprocessing**: Automatically resized to 224 x 224 and normalized to [0,1]
 
 # ⚠️Key Limitations
-- **Optimized for OASIS-protocol**: Model trained specifically on T1 axial MRI scans
+- **Training data size**: Optimized for OASIS dataset; performance may vary with different dataset sizes
+- **Epoch convergence**: Model converged at epoch 7; training continued to epoch 10 showed minor fluctuations
+- **Validation protocol**: Model validated on held-out OASIS-protocol MRI scans
 - **Cross-scanner generalization**: Performance may vary significantly with:
     - Different MRI scanner models
     - Alternative imaging protocols
     - Different acquisition parameters
 - **Clinical use**: This is a research tool. Results should be validated by medical professionals
 - **Data imbalance**: Class weights are applied during training due to dataset imbalance.
+
 
 # ⚠️Disclaimer
 
